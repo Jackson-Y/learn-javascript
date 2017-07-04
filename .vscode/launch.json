@@ -7,6 +7,6 @@
         "type": "node",
         "request": "launch",
         "name": "启动程序",
-        "program": "${workspaceRoot}/lesson10-method.js"
+        "program": "${workspaceRoot}/lesson10-grammer.js"
     }]
 }

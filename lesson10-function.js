@@ -111,6 +111,33 @@ var str = ['asL', 'LNMP', 'aDLD', 'LISa', 'barT'];
 console.log(str.map(standStr));
 
 
+// filter
+// 去偶数
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var r = arr.filter(function(x) {
+    return x % 2 !== 0;
+});
+console.log(r);
+
+
+// 去空字符串
+var arr = ['A', 'B', null, undefined, 'C', ' '];
+var r = arr.filter(function(s) {
+    return s && s.trim();
+    //return s && strings.replace(/(^\s*)|(\s*$)/g, "").length === 0;
+});
+console.log(r);
+
+// 去重复元素
+var
+    r,
+    arr = ['aa', 'aa', 'bb', 'cc', 'ee', 'bb', 'ff'];
+r = arr.filter(function(element, index, self) {
+    return self.indexOf(element) === index;
+});
+console.log(r.toString());
+
+
 // 判断素数
 function isPrime(x) {
     if (x === 1) {
@@ -143,3 +170,22 @@ if (r.toString() === [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53
 } else {
     console.log('测试失败！');
 }
+
+
+// sort() 默认情况下，先转换成字符串，按ASCALL排序，1,10,2,20
+// 要对数字进行大小排序，需要使用高阶函数
+var arr = ['Google', 'Apple', 'Microsoft', 'alibaba', 'apple', 1, 10, 2, 3, 20];
+arr.sort();
+console.log(arr);
+
+var arr = [1, 10, 20, 15, 3, 9, 50];
+arr.sort(function(x, y) {
+    if (x < y) {
+        return -1;
+    }
+    if (x > y) {
+        return 1;
+    }
+    return 0;
+});
+console.log(arr); // [ 1, 3, 9, 10, 15, 20, 50 ]
