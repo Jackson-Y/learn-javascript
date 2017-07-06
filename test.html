@@ -3,10 +3,36 @@
 <head>
     <meta charset="utf-8">
     <title>Learn Javascript</title>
-    <script type="text/javascript" src="lesson13-Browser.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /*font: 17px "\5B8B\4F53", san-serif;*/
+            font: 16px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+            background: #fff;
+        }
+        
+        a {
+            color: #2b2b2b;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #ba2636;
+            text-decoration: underline;
+        }
+        
+        a:active {
+            color: #ba2636;
+        }
+    </style>
 </head>
 
-<body>
+<body onload='load()'>
     <dl id="drink-menu" style="border:solid 1px #ccc;padding:6px;">
         <dt>摩卡</dt>
         <dd>热摩卡咖啡</dd>
@@ -15,6 +41,31 @@
         <dt>果汁</dt>
         <dd>鲜榨苹果汁</dd>
     </dl>
+    <div id="test-div">
+        <div class="c-red">
+            <p id="test-p">JavaScript</p>
+            <p>Java</p>
+        </div>
+        <div class="c-red c-green">
+            <p>Python</p>
+            <p>Ruby</p>
+            <p>Swift</p>
+        </div>
+        <div class="c-green">
+            <p>Scheme</p>
+            <p>Haskell</p>
+        </div>
+    </div>
+    <ol id="test-list">
+        <li class="lang">Scheme</li>
+        <li class="lang">JavaScript</li>
+        <li class="lang">Python</li>
+        <li class="lang">Ruby</li>
+        <li class="lang">Haskell</li>
+    </ol>
+    <input id="input1" type="button" title='test_input' value="点此改变样式" contenteditable="true" onclick="changecss()" />
+    <!--<javascript>-->
+    <script type="text/javascript" src="lesson13-DOM.js"></script>
 </body>
 
 </html>
