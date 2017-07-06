@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Form</title>
+</head>
+
+
+<!--注意区别：
+1、<form> 的属性；
+2、<botton> 的属性；-->
+
+<body>
+    <!--点submit按钮提交-->
+    <!--<form id="test-form">
+        <input type="password" name="test">
+        <button type="button" onclick="doSubmitForm()">submit</button>
+    </form>
+    <script>
+        function doSubmitForm() {
+            var form = document.getElementById('test-form');
+            alert(form.children[0].value);
+            form.submit();
+        }
+    </script>-->
+
+    <!--点submit按钮提交  或者  在最后一个输入框中点回车提交-->
+    <!--没有name属性的<input>的数据不会被提交-->
+    <form id="test-form" onsubmit="return checkForm()">
+        <input type="text" name="name"><br>
+        <input type="password" id="password">
+        <input type="hidden" id="md5-pwd" name="md5-pwd">
+        <button type="submit">submit</button><br>
+        <!--html5-->
+        <input type="color" value="#ff0000"><br>
+        <input type="datetime-local" value="2017-07-01T02:03:04"><br>
+        <input type="date" value="2017-07-01">
+    </form>
+    <script>
+        function checkForm() {
+            var f = document.getElementById('test-form');
+            var in_pwd = document.getElementById('password');
+            var md5_pwd = document.getElementById('md5-pwd');
+            md5_pwd.value = toMD5(in_pwd.value);
+            alert(f.children[0].value);
+            return true;
+        }
+    </script>
+</body>
+
+</html>
