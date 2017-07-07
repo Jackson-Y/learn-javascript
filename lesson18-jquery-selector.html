@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript jQuery</title>
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="test-selector">
+        <ul class="test-lang">
+            <li class="lang-javascript">JavaScript</li>
+            <li class="lang-python">Python</li>
+            <li class="lang-lua">Lua</li>
+        </ul>
+        <ol class="test-lang">
+            <li class="lang-swift">Swift</li>
+            <li class="lang-java">Java</li>
+            <li class="lang-c">C</li>
+        </ol>
+        <ul class="lang">
+            <li class="js dy">JavaScript</li>
+            <li class="dy">Python</li>
+            <li id="swift">Swift</li>
+            <li class="dy">Scheme</li>
+            <li name="haskell">Haskell</li>
+        </ul>
+    </div>
+    <script>
+        'use srict'
+
+        var selected = null;
+        //selected = $('li');
+        selected = $('.test-selector li.lang-javascript,li.lang-lua,li.lang-c');
+
+        if (!(selected instanceof jQuery)) {
+            alert('not useful jQuery Object!');
+        }
+        $('test-selector').find('*').css('background-color', '');
+        selected.css('background-color', '#ffd351');
+
+        // find(),prev(),next(),parent()
+        var ul = $('ul.lang');
+        var swf = ul.find('#swift');
+
+        var a = swf.parent().parent('div.red'); //从 swift 父节点的父节点开始，往上查找‘div.red’
+        var swift = $('#swift');
+
+        swift.next(); // Scheme
+        swift.next('[name=haskell]'); // Haskell，因为Haskell是后续第一个符合选择器条件的节点
+
+        swift.prev(); // Python
+        swift.prev('.js'); // JavaScript，因为JavaScript是往前第一个符合选择器条件的节点
+
+
+        //filter(),map()
+        var langs = $('ul.lang li'); // 拿到JavaScript, Python, Swift, Scheme和Haskell
+        var s = langs.filter(function() {
+            return this.innerHTML.indexOf('S') === 0; // 返回S开头的节点
+        }); //拿到Swift, Scheme
+        console.log(s[0].textContent);
+
+        var langs = $('ul.lang li'); // 拿到JavaScript, Python, Swift, Scheme和Haskell
+        var arr = langs.map(function() {
+            return this.innerHTML;
+        }).get(); // 用get()拿到包含string的Array：['JavaScript', 'Python', 'Swift', 'Scheme', 'Haskell']
+        console.log(arr[0]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript jQuery</title>
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // hide(3000),show('slow')
+
+        // slideUp(3000), slideDown('slow')
+
+        // animate()
+        var div = $('#test-animate');
+        div.animate({
+            opacity: 0.25,
+            width: '256px',
+            height: '256px'
+        }, 3000, function() {
+            console.log('动画已结束');
+            // 恢复至初始状态:
+            $(this).css('opacity', '1.0').css('width', '128px').css('height', '128px');
+        });
+    </script>
+</body>
+
+</html>
